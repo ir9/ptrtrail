@@ -13,7 +13,12 @@
 #define WIN32_LEAN_AND_MEAN		// Windows ヘッダーから殆ど使用されないスタッフを除外します
 
 #include <windows.h>
-
+#pragma comment(linker, "/opt:nowin98")
+#pragma comment(linker, "/FILEALIGN:16")
+#pragma comment(linker, "/ALIGN:16")// Merge sections
+#pragma comment(linker,"/merge:.rdata=.data")
+#pragma comment(linker,"/merge:.text=.data")
+#pragma comment(linker,"/merge:.reloc=.data")
 
 // TODO: プログラムで必要なヘッダー参照を追加してください。
 

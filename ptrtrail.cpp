@@ -3,15 +3,20 @@
 
 #include "stdafx.h"
 
-int APIENTRY WinMain(HINSTANCE hInstance,
-                     HINSTANCE hPrevInstance,
-                     LPSTR     lpCmdLine,
-                     int       nCmdShow )
+int WINAPI WinMainCRTStartup(void)
 {
- 	// TODO: この位置にコードを記述してください。
-
+	::SystemParametersInfo(SPI_SETMOUSETRAILS, 7, NULL, 0);
 	return 0;
 }
+
+#if _DEBUG
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR szCmd, int nShow)
+{
+	return WinMainCRTStartup();
+}
+
+#endif // _DEBUG
 
 
 
